@@ -1,17 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "IshiharaPlate", menuName = "Specvis/Ishihara Plate Info", order = 0)]
+[CreateAssetMenu(fileName = "NewIshiharaPlate", menuName = "Specvis/Ishihara Plate Info", order = 100)]
 public class IshiharaPlateInfo : ScriptableObject
 {
-    public string plateID; // e.g., "Plate 1", "Plate 2"
-    public string description; // For internal reference, e.g., "Standard 74"
-    public string correctResponse; // e.g., "74", "29", "pattern"
-    public string commonProtanResponse; // Response typical for protanopia/protanomaly
-    public string commonDeutanResponse; // Response typical for deutanopia/deutanomaly
-    // In a real scenario, might also include:
-    // public Sprite plateImage; // To display the actual plate
-    // public PlateType plateType; // e.g., Vanishing, Transformation, HiddenDigit, Classification
+    public string plateID; // e.g., "Plate 1", "Plate 2", or the number depicted
+    [Tooltip("What the user is expected to see if they have normal color vision.")]
+    public string correctResponse; // e.g., "74", "29", "pattern", "nothing"
+    [Tooltip("Response typical for protanopia/protanomaly.")]
+    public string commonProtanResponse;
+    [Tooltip("Response typical for deutanopia/deutanomaly.")]
+    public string commonDeutanResponse;
+    // Optional: Add a field for the image itself if you plan to display them
+    // public Sprite plateImage;
 }
-
-// public enum PlateType { Vanishing, Transformation, HiddenDigit, Classification, Diagnostic }
-// Not strictly needed for this task, but good for future expansion.
